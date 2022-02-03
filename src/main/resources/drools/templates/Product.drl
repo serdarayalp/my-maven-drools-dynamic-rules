@@ -1,0 +1,27 @@
+template header
+
+name
+object
+conditional
+action
+
+package drools.templates;
+
+global de.mydomain.drools.model.Product product;
+
+import java.text.SimpleDateFormat;
+import function de.mydomain.drools.model.DroolsUtility.logger;
+
+dialect "java"
+
+template "Product"
+
+rule "@{row.rowNumber} - @{name}"
+when
+    @{object}(@{conditional})
+then
+    product.discount(@{action});
+	logger(drools);
+end
+
+end template
